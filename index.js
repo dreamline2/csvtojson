@@ -18,7 +18,7 @@ csvConverter.on("end_parsed",function(jsonObj){
          if(err) {
              console.log(err);
          } else {
-             console.log("The file was saved!");
+             console.log("The fbid.json was saved!");
          }
      });
 
