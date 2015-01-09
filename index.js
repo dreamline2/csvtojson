@@ -1,7 +1,13 @@
+var flags = require('flags');
+
+flags.defineString('token', 'CAACEdEose0cBAAxXD4slJyLZAvbf8uwzM278pB3mVh31NszJmkiILU04ogn541CT3NSPvqAawcy47Ue4JBvp7tidcZBT3xBtAMrBPb5cEwAsLEEBEcT250ZAURuWwBcpRO3JYZAJT6fgZAzLz9f2ur4ZCZAuVvUqgo8E8WtZCxF5APVy50MNEJsO7uJGo42V7v3fS6NjoBZCHlmHxTG6b6PgI2tvdkHdSctEZD', 'Your name');
+flags.defineInteger('l', 30, 'Your age in whole years');
+
+flags.parse();
 
 // input your config
-var yourAccessToken = 'CAACEdEose0cBADcZCoCrzy0fAUTrLhDsDZAwZBkGi5ZBn5kHAydi32BdnqBbcrca041V3nTkF0Y5IaVkfSKHcejQ3PYrbCGirqxkbvg9gNLcBC3wDsj1fQHAeHRoSZBhF3xp7b4WhVQZC41Vaj1WnRXd3XBE4Om7qjBWioAp3b1GYiUTVJPoctOSMYM8S3wFKKeYRAWvOMnEkCfPyc2ZBc0VR7MeWuziFEZD';
-var yourQueryDateLength = 30;
+var yourAccessToken = flags.get('token');
+var yourQueryDateLength = flags.get('l');
 
 // require package
 var Converter = require("csvtojson").core.Converter;
@@ -10,7 +16,7 @@ var request = require('request');
 
 // src 
 var json = require('./fbid.json');
-var csvFileName = "./src/source.csv";
+var csvFileName = "./src/20150109_beatles.csv";
 var fileStream = fs.createReadStream(csvFileName);
 
 //new converter instance
@@ -33,7 +39,7 @@ var GEN_EMAIL = {
 		            var o = JSON.parse(body);
 		            var id = o.id;
 		            var name = o.name;
-		            var print = GEN_EMAIL.num + ':' + id + '->' + name;
+		            var print = GEN_EMAIL.num + 1 + ':' + id + '->' + name + '\n';
 
 		            console.log(print)
 		            result += print;
