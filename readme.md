@@ -5,7 +5,9 @@ Notice: Token will expire!! That's terrible!!
 1. Install [nodejs](http://nodejs.org/)
 2. `cd` your directory
 3. `npm install`
-4. `npm start`
+3. `npm start`
+
+
 
 ### Standard user usage flow
 1. upload csv
