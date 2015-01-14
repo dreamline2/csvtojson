@@ -17,7 +17,7 @@ var fileStream = fs.createReadStream(csvFileName);
 var param = {};
 var csvConverter = new Converter(param);
 var GEN_EMAIL = {
-	apiURL: 'https://graph.facebook.com/v2.2/',
+	apiURL: 'https://graph.facebook.com/',
 	num: 0,
 
 	// 產生最後 EMAIL
@@ -28,11 +28,11 @@ var GEN_EMAIL = {
 		    var FBID = json[i][100000194132065];
 		    var result = '';
 
-		    request(GEN_EMAIL.apiURL + FBID + '?access_token=' + yourAccessToken, function (error, response, body) {
+		    request(GEN_EMAIL.apiURL + FBID , function (error, response, body) {
 		        if (!error && response.statusCode == 200) {
 		            var o = JSON.parse(body);
 		            var id = o.id;
-		            var name = o.name;
+		            var name = o.username;
 		            var print = GEN_EMAIL.num + 1 + ':' + id + '->' + name;
 
 		            console.log(print)
